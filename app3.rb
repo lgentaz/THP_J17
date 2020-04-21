@@ -95,22 +95,24 @@ in_view
 rounds = 0
 while my_game.is_still_going? do # Test si le joueur et des adversaires sont présents
 	rounds += 1 #permet de définir le numéro du round, nb total affiché à la fin de la partie.
-	if rounds != 1
+	if rounds != 1 #permet de ne pas réafficher les stats au 1er tour (cf ligne 86)
 		my_game.show_players	
 		sleep(1)
 		puts ""
 	end
-	action = my_game.menu
+	my_game.new_players_in_sight
+	puts ""
+	action = my_game.menu #Appel le menu et conserve la valeur selectionnée
 	sleep(0.5)
 	puts ""
 	my_game.menu_choice(action)
-	my_game.kill_player
+	my_game.kill_player # Demande la mise à jour de la liste d'ennemis après le coup porté
 	sleep(1)
 	puts ""
 	if my_game.is_still_going? 
-		mayday
+		mayday # Envoi l'animation d'attaque des ennemis
 	end
-	my_game.ennemi_attack
+	my_game.enemi_attack
 	puts "Fin du round : #{rounds}"
 # Scores du round
 	if my_game.is_still_going?
@@ -121,10 +123,3 @@ end
 
 # Scores finaux et fin de partie 
 my_game.end
-
-
-
-
-
-
-
