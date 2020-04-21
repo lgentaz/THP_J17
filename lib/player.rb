@@ -72,7 +72,7 @@ class HumanPlayer < Player
 # Changement d'arme
 	def search_weapon
 		new_level = rand(1..6)
-		puts "Tu as trouver une arme de niveau #{new_level}."
+		puts "Tu as trouvé une arme de niveau #{new_level}."
 		if new_level > self.weapon_level
 			self.weapon_level = new_level
 			puts "Une aubaine, elle est meilleure que ton arme actuelle : tu la prends."
