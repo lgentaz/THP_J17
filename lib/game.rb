@@ -82,8 +82,8 @@ class Game
 
 	def end
 		# Scores finaux et fin de partie 
-		puts "La partie est finie"
 		puts ""
+		puts "La partie est finie"
 		if @human_player.life_points > 0
 			puts "BRAVO ! Tu as gagné."
 		else

@@ -83,6 +83,9 @@ top
 
 # Les joueurs
 my_game = Game.new(choose_name)
+my_game.show_players
+sleep(1)	
+puts ""
 
 
 # Debut de la partie
@@ -92,21 +95,28 @@ in_view
 rounds = 0
 while my_game.is_still_going? do # Test si le joueur et des adversaires sont présents
 	rounds += 1 #permet de définir le numéro du round, nb total affiché à la fin de la partie.
-	my_game.show_players	
-	sleep(1.5)
-	puts ""
+	if rounds != 1
+		my_game.show_players	
+		sleep(1)
+		puts ""
+	end
 	action = my_game.menu
+	sleep(0.5)
 	puts ""
 	my_game.menu_choice(action)
 	my_game.kill_player
-	mayday
+	sleep(1)
+	puts ""
+	if my_game.is_still_going? 
+		mayday
+	end
 	my_game.ennemi_attack
 	puts "Fin du round : #{rounds}"
 # Scores du round
-#	round_score(my_game.human_player)
-#	player_h.show_ennemies #met a jour l'array ennemies
-	sleep(1.5)
-	puts "     \n ----------------\n   "
+	if my_game.is_still_going?
+		puts "     \n On y retourne?\n - press enter -\n   "
+		gets.chomp
+	end
 end
 
 # Scores finaux et fin de partie 

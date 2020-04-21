@@ -17,8 +17,8 @@ puts "------------"
 
 # Début de la partie
 puts "Prêts à en découdre, voici l'état de chaque joueur :"
-player1.show_state
-player2.show_state
+puts player1.show_state
+puts player2.show_state
 puts "------------"
 
 puts "Passons à l'attaque : FIGHT!"
