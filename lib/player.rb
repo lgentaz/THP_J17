@@ -30,7 +30,7 @@ class Player
 
 # Résultats du coup porté
 	def attacks(player_n)
-		if self.life_points >0
+		if self.life_points > 0
 			puts "Le joueur #{self.name} attaque le joueur #{player_n.name}"
 			damage = compute_damage
 			puts "Il lui inflige #{damage} points de dommages"
